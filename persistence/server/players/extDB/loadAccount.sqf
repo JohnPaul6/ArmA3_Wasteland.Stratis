@@ -10,7 +10,20 @@ private ["_UID", "_bank", "_moneySaving", "_result", "_data", "_dataTemp", "_gho
 _UID = _this;
 
 _bank = 0;
+_supporters = 0;
 _moneySaving = ["A3W_moneySaving"] call isConfigOn;
+_supportersEnabled = ["A3W_supportersEnabled"] call isConfigOn;
+
+//Supporter Database Query
+if (_supportersEnabled) then
+{
+	_result = ["getPlayerSupporterLevel:" + _UID, 2] call extDB_Database_async;
+
+	if (count _result > 0) then
+	{
+		_supporters = _result select 0;
+	};
+};
 
 if (_moneySaving) then
 {
@@ -29,7 +42,8 @@ if (!_result) then
 	_data =
 	[
 		["PlayerSaveValid", false],
-		["BankMoney", _bank]
+		["BankMoney", _bank],
+		["SupporterLevel", _supporters] //SupporterLevel Query
 	];
 }
 else
@@ -115,6 +129,7 @@ else
 
 	_data append _dataTemp;
 	_data pushBack ["BankMoney", _bank];
+	_data pushBack ["SupporterLevel", _supporters];// Supporter Database Query Result
 };
 
 _data

@@ -68,9 +68,14 @@ A3W_fnc_checkPlayerFlag =
 			(owner _player) publicVariableClient _pvarName;
 
 			{
-				if (_x select 0 == "BankMoney") exitWith
+				if (_x select 0 == "BankMoney") then
 				{
 					_player setVariable ["bmoney", _x select 1, true];
+				};
+				// Supporter Level Database Query
+				if (_x select 0 == "supporterLevel") then
+				{
+					_player setVariable ["supporter", _x select 1, true];
 				};
 			} forEach _data;
 
