@@ -64,8 +64,11 @@ loadScreen = "mapConfig\Loading.jpg";
 #include "addons\proving_ground\PG_config.hpp"
 #include "addons\outlw_magrepack\config.hpp"
 
-//Custom Dialogs
+//Supporter Dialogs
 #include "client\systems\supporter\dialog\Donatordialog.hpp"
+#include "addons\supporter_addons\VehiclePainter\dialog\VehiclePainter_mainMenu.hpp"
+#include "addons\supporter_addons\UniformPainter\dialog\UniformPainter_mainMenu.hpp"
+
 
 class RscTitles
 {
