@@ -15,6 +15,16 @@ class RespawnSelectionDialog
 
 	class ControlsBackground
 	{
+		class Background_main : w_RscPicture
+		{
+			idc = 1200;
+			text = "client\systems\playerMenu\dialog\img\spawnimage.jpg";
+			x = -0.7125;
+			y = -0.42;
+			w = 2.425;
+			h = 1.86;
+		};
+		
 		class RspnMainBG: IGUIBack
 		{
 			idc = -1;
