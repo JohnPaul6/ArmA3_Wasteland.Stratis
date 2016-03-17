@@ -69,6 +69,9 @@ loadScreen = "mapConfig\Loading.jpg";
 #include "addons\supporter_addons\VehiclePainter\dialog\VehiclePainter_mainMenu.hpp"
 #include "addons\supporter_addons\UniformPainter\dialog\UniformPainter_mainMenu.hpp"
 
+//CHVD - Custom Render Distance
+#include "addons\CHVD\dialog.hpp"
+
 
 class RscTitles
 {
@@ -86,6 +89,8 @@ class CfgFunctions
 		#include "client\CfgFunctions.hpp"
 		#include "server\CfgFunctions.hpp"
 	};
+	//CHVD - Custom Render Distance
+	#include "addons\CHVD\CfgFunctions.hpp"
 };
 
 class CfgNotifications
