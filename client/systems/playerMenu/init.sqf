@@ -9,6 +9,9 @@ disableSerialization;
 
 private["_Dialog","_foodtext","_watertext","_moneytext","_mvalue","_rogue"];
 
+_supportersEnabled = ["A3W_supportersEnabled"] call isConfigOn;
+_supporterLevel = player getVariable ["supporter", 0];
+
 _playerDialog = createDialog "playerSettings";
 
 _Dialog = findDisplay playersys_DIALOG;
@@ -18,6 +21,7 @@ _moneytext = _Dialog displayCtrl money_text;
 _mvalue = _Dialog displayCtrl money_value;
 _rogue = _Dialog displayCtrl rogue_text;
 _uptime = _Dialog displayCtrl uptime_text;
+_supporter_button = _Dialog displayCtrl supporter_button; //Supporter 
 _groupButton = _Dialog displayCtrl groupButton;
 _foodtext ctrlSettext format["%1 / 100", round(hungerLevel)];
 _watertext ctrlSetText format["%1 / 100", round(thirstLevel)];
@@ -37,4 +41,24 @@ _moneytext ctrlSetText format["%1", [player getVariable ["cmoney", 0]] call fn_n
 		if (!isNull _escMenu) exitWith { _escMenu closeDisplay 0 }; // Force close Esc menu if open
 		sleep 0.1;
 	};
+};
+
+switch (_supporterLevel) do {			
+		case 1:
+		{
+			_supporter_button ctrlEnable true;
+		};
+		case 2: 
+		{
+			_supporter_button ctrlEnable true;
+		};			
+		case 3: 
+		{
+			_supporter_button ctrlEnable true;
+		};	
+		default
+		{
+			_supporter_button ctrlEnable false;
+			_supporter_button ctrlSetTooltip "More information @ Strayagaming.com.au/forums";
+		};
 };

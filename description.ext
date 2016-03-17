@@ -64,6 +64,9 @@ loadScreen = "mapConfig\Loading.jpg";
 #include "addons\proving_ground\PG_config.hpp"
 #include "addons\outlw_magrepack\config.hpp"
 
+//Custom Dialogs
+#include "client\systems\supporter\dialog\Donatordialog.hpp"
+
 class RscTitles
 {
 	#include "addons\proving_ground\PG_rsctitles.hpp"
