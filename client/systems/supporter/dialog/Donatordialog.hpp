@@ -55,7 +55,7 @@ class Donator {
 			text = "Close";
 			colorBackground[] = {0, 0, 0, 0};
 			onButtonClick = "closeDialog 0;";
-			x = -0.07; y = 0.70; //x = 0.02; y = 0.66; .138 differnce 
+			x = -0.14; y = 0.70; //x = 0.02; y = 0.66; .138 differnce 
 			w = 0.125; h = 0.033 * safezoneH;
 		};
 
