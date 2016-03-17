@@ -19,6 +19,9 @@ _setupObjects =
 
 	// Class, Position, Fuel, Ammo, Damage, Special
 	_vehicle = [_vehicleClass, _missionPos] call createMissionVehicle;
+	
+	//Set Damage on vehicle random to add to its broken down.
+	_vehicle setDamage ((random .4)+.3);
 
 	switch (true) do
 	{
