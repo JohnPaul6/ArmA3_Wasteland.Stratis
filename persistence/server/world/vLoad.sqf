@@ -98,6 +98,7 @@ _exclVehicleIDs = [];
 		_veh setVariable ["vehSaving_lastUse", diag_tickTime];
 		_veh setVariable ["vehSaving_hoursAlive", _hoursAlive];
 		_veh setVariable ["vehSaving_spawningTime", diag_tickTime];
+		_veh setVariable ["R3F_LOG_Disabled", false, true]; //R3F 3.1
 
 		_veh allowDamage true;
 		_veh setDamage _damage;

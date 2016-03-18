@@ -49,6 +49,7 @@ _vehicle = createVehicle [_vehicleType, _pos, [], 0, "None"];
 _vehicle setPosATL [_pos select 0, _pos select 1, 1.5];
 _vehicle setDir random 360;
 _vehicle setVelocity [0,0,0.01];
+_vehicle setVariable ["R3F_LOG_disabled", false, true]; // R3F 3.1
 
 _vehicle setDamage (random 0.5); // setDamage must always be called before vehicleSetup
 

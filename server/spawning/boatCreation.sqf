@@ -25,6 +25,7 @@ _boat = createVehicle [_boatType, _pos, [], 0, "None"];
 _boat setPosASL [_pos select 0, _pos select 1, 0];
 _boat setDir random 360;
 _boat setVelocity [0,0,0];
+_boat setVariable ["R3F_LOG_disabled", false, true]; // R3F 3.1
 
 _boat setDamage (random 0.5); // setDamage must always be called before vehicleSetup
 

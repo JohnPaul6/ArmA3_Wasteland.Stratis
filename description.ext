@@ -40,7 +40,8 @@ loadScreen = "mapConfig\Loading.jpg";
 //Dialog includes
 
 #include "client\gui_base.hpp"
-#include "addons\R3F_ARTY_AND_LOG\desc_include.h"
+//#include "addons\R3F_ARTY_AND_LOG\desc_include.h" R3F *Old*
+#include "addons\R3F_LOG\desc_include.h" // R3f 3.1 Upgrade
 #include "client\systems\ui_toolkit.hpp"
 #include "client\systems\common.hpp"
 #include "client\items\warchest\dialog.hpp"

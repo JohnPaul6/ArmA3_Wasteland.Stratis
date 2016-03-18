@@ -33,6 +33,7 @@ _spawnPos = _this select 1;
 
 	_currHeli setFuel (0.1 + random 0.2);
 	_currHeli setVehicleAmmo 0.5;
+	_currHeli setVariable ["R3F_LOG_disabled", false, true]; // R3F 3.1
 	// _currHeli spawn cleanVehicleWreck;
 
 	_currHeli enableSimulationGlobal true;
