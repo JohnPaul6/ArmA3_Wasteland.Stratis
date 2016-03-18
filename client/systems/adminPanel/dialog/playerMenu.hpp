@@ -213,16 +213,17 @@ class PlayersMenu
 			h = 0.04 * safezoneH;
 		};
 
-		/*class RemoveAllWeaponsButton: w_RscButton
+		class RemoveAllWeaponsButton: w_RscButton
 		{
 			idc = -1;
-			text = "Remove Weapons";
+			text = "Unstuck Player";
 			onButtonClick = "[6] execVM 'client\systems\adminPanel\playerSelect.sqf'";
 			x = 0.3705 * safezoneW + safezoneX;
 			y = 0.748 * safezoneH + safezoneY;
 			w = 0.105 * safezoneW;
 			h = 0.04 * safezoneH;
-		};*/
+			tooltip = "Unstucks the selected played. Teleports them 1KM up!";
+		};
 
 		/*class CheckPlayerGearButton: w_RscButton
 		{

@@ -100,16 +100,17 @@ if (_uid call isAdmin) then
 			}forEach playableUnits;
 			["PlayerMgmt_RemoveMoney", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
-		case 6: //Remove All Weapons
+		case 6: //Unstuck Selected Player
 		{
-			/*_targetUID = getPlayerUID _target;
+			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
 				{
-					removeAllWeapons _x;
+					_unstuck = [(getPosASL _x select 0), (getPosASL _x select 1), (getPosASL _x select 2) + 1000]; 
+					_x setposATL _unstuck
 				};
-			}forEach playableUnits;*/
-			["This option has been disabled due to having never worked at all in the first place."] spawn BIS_fnc_guiMessage;
+			}forEach playableUnits;
+			["PlayerMgmt_Unstuck", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 7: //Check Player Gear
 		{
