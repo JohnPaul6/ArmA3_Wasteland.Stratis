@@ -12,6 +12,8 @@
 #define playerMenuPlayerHealth 55508
 #define playerMenuWarnMessage 55509
 #define playerMenuPlayerUID 55510
+#define TPPtoM_Button 55611
+#define TPMtoP_Button 55612
 
 class PlayersMenu
 {
@@ -213,7 +215,7 @@ class PlayersMenu
 			h = 0.04 * safezoneH;
 		};
 
-		class RemoveAllWeaponsButton: w_RscButton
+		class UnstuckPlayerButton: w_RscButton
 		{
 			idc = -1;
 			text = "Unstuck Player";
@@ -225,16 +227,29 @@ class PlayersMenu
 			tooltip = "Unstucks the selected played. Teleports them 1KM up!";
 		};
 
-		/*class CheckPlayerGearButton: w_RscButton
+		class TPPtoM_Button: w_RscButton
 		{
-			idc = -1;
-			text = "Gear";
+			idc = TPPtoM_Button;
+			text = "Teleport Player to Me";
 			onButtonClick = "[7] execVM 'client\systems\adminPanel\playerSelect.sqf'";
 			x = 0.482 * safezoneW + safezoneX;
 			y = 0.748 * safezoneH + safezoneY;
-			w = 0.05 * safezoneW;
+			w = 0.105 * safezoneW;
 			h = 0.04 * safezoneH;
-		};*/
+			tooltip = "Teleports selected player to you.";
+		};
+		
+		class TPMtoP_Button: w_RscButton
+		{
+			idc = TPMtoP_Button;
+			text = "Teleport Me to Player";
+			onButtonClick = "[8] execVM 'client\systems\adminPanel\playerSelect.sqf'";
+			x = 0.482 * safezoneW + safezoneX;
+			y = 0.70 * safezoneH + safezoneY;
+			w = 0.105 * safezoneW;
+			h = 0.04 * safezoneH;
+			tooltip = "Teleports you to selected player.";
+		};
 
 		class WarnButton: w_RscButton
 		{

@@ -32,7 +32,7 @@ else
 		// Put player UIDs here
 	];
 
-	// High Administrators: manage & spectate players, remove hacked vehicles, show player tags
+	// High Administrators: manage & spectate players, remove hacked vehicles, show player tags, teleport player to you, teleport you to player
 	highAdmins = compileFinal str
 	[
 		// Put player UIDs here

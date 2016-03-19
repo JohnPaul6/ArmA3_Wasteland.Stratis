@@ -35,7 +35,7 @@ if (_uid call isAdmin) then
 	} forEach playableUnits;
 
 	if (_check == 0) exitWith{};
-
+	
 	switch (_switch) do
 	{
 		case 0: //Spectate
@@ -112,16 +112,28 @@ if (_uid call isAdmin) then
 			}forEach playableUnits;
 			["PlayerMgmt_Unstuck", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
-		case 7: //Check Player Gear
+		case 7: //Teleport Player to Me
 		{
-			/*_targetUID = getPlayerUID _target;
+			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
 				{
-					createGearDialog [_x, "RscDisplayInventory"];
+					vehicle _x setPos (position player);
 				};
-			}forEach playableUnits;*/
-			["This option has been disabled due to having never worked at all in the first place."] spawn BIS_fnc_guiMessage;
+			}forEach playableUnits;
+
+			["PlayerMgmt_TP_Player_to_Me", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
+		};
+		case 8: //Teleport Me to Player
+		{
+			_targetUID = getPlayerUID _target;
+			{
+				if(getPlayerUID _x == _targetUID) exitWith
+				{
+					vehicle player setPos (position _x);
+				};
+			}forEach playableUnits;
+			["PlayerMgmt_TP_Me_to_Player", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 	};
 };

@@ -9,6 +9,8 @@
 
 #define playerMenuDialog 55500
 #define playerMenuPlayerList 55505
+#define TPPtoM_Button 55611
+#define TPMtoP_Button 55612
 
 disableSerialization;
 
@@ -21,6 +23,17 @@ if (_uid call isAdmin) then
 	_lockedSide = "None";
 	_dialog = findDisplay playerMenuDialog;
 	_playerListBox = _dialog displayCtrl playerMenuPlayerList;
+	
+	_TPPtoM_Button = _dialog displayCtrl TPPtoM_Button;
+	_TPMtoP_Button = _dialog displayCtrl TPMtoP_Button;
+	
+	if !([_uid, highAdmins] call isAdmin || [_uid, serverOwners] call isAdmin) then
+	{
+		_TPPtoM_Button ctrlEnable false;
+		_TPPtoM_Button ctrlSetTooltip "Admin & Above only";
+		_TPMtoP_Button ctrlEnable false;
+		_TPMtoP_Button ctrlSetTooltip "Admin & Above only";
+	};
 
 	{
 		_uid = getPlayerUID _x;
