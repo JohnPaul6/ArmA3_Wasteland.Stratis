@@ -173,7 +173,7 @@ if (["A3W_combatAbortDelay", 0] call getPublicVar > 0) then
 
 _uid = getPlayerUID player;
 
-if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
+if (playerSide in [BLUFOR,OPFOR,INDEPENDENT] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
 {
 	_startTime = diag_tickTime;
 	waitUntil {sleep 1; diag_tickTime - _startTime >= 180};
@@ -185,6 +185,7 @@ if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitch
 	{
 		case BLUFOR: { "BLUFOR" };
 		case OPFOR:  { "OPFOR" };
+		case INDEPENDENT: { "INDEPENDENT" };
 	};
 
 	titleText [format ["You have been locked to %1", _side], "PLAIN", 0.5];
