@@ -4827,7 +4827,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=151;
+		items=161;
 		class Item0
 		{
 			position[]={4339.3457,226.45149,3824.2236};
@@ -5988,6 +5988,102 @@ class Mission
 			name="respawn_civilian";
 			type="Empty";
 			colorName="ColorCIV";
+		};
+		class Item151
+		{
+			position[]={5120.4619,-0.1586362,799.89307};
+			name="Sg_1_1";
+			text="Strayagaming Stratis Wasteland 1.2b";
+			type="mil_box";
+			colorName="ColorWhite";
+		};
+		class Item152
+		{
+			position[]={5120.4824,0.16324103,515.6084};
+			name="Websit_1_1";
+			text="Website - strayagaming.com.au";
+			type="mil_box";
+			colorName="ColorWhite";
+		};
+		class Item153
+		{
+			position[]={5120.4775,-0.2728014,242.69385};
+			name="ts3_1_1";
+			text="Ts3 - ts.strayagaming.com.au:10124";
+			type="mil_box";
+			colorName="ColorWhite";
+		};
+		class Item154
+		{
+			position[]={319.66498,0.0025887191,7895.0078};
+			name="Sg_1_1_1";
+			text="Strayagaming Stratis Wasteland 1.2b";
+			type="mil_box";
+			colorName="ColorWhite";
+		};
+		class Item155
+		{
+			position[]={319.68549,0.13646367,7610.7231};
+			name="Websit_1_1_1";
+			text="Website - strayagaming.com.au";
+			type="mil_box";
+			colorName="ColorWhite";
+		};
+		class Item156
+		{
+			position[]={319.6806,-0.14392081,7337.8086};
+			name="ts3_1_1_1";
+			text="Ts3 - ts.strayagaming.com.au:10124";
+			type="mil_box";
+			colorName="ColorWhite";
+		};
+		class Item157
+		{
+			position[]={4095.3115,0.0068485206,-144.90332};
+			name="nsernszn_2_2_1";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorGreen";
+			fillName="SolidFull";
+			a=150;
+			b=4100;
+			angle=90;
+		};
+		class Item158
+		{
+			position[]={4098.7993,0.024763014,8344.749};
+			name="nsernszn_2_2_1_1";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorGreen";
+			fillName="SolidFull";
+			a=150;
+			b=4100;
+			angle=90;
+		};
+		class Item159
+		{
+			position[]={8342.5566,0.19864938,4098.8198};
+			name="1nsernszn_2_2_1_2";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorGreen";
+			fillName="SolidFull";
+			a=4395;
+			b=150;
+			angle=90;
+		};
+		class Item160
+		{
+			position[]={-139.95584,0.088635042,4102.0693};
+			name="nsernszn_2_2_1_2_1";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorGreen";
+			fillName="SolidFull";
+			a=4395;
+			b=150;
+			angle=90;
 		};
 	};
 };
