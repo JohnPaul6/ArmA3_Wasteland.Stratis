@@ -16,6 +16,7 @@ disableSerialization;
 
 private ["_dialog","_playerListBox","_spectateButton","_switch","_index","_modSelect","_playerData","_target","_check","_spectating","_camadm","_rnum","_warnText","_targetUID","_playerName"];
 _uid = getPlayerUID player;
+_Name = profileName;
 if (_uid call isAdmin) then
 {
 	_dialog = findDisplay playerMenuDialog;
@@ -134,6 +135,13 @@ if (_uid call isAdmin) then
 				};
 			}forEach playableUnits;
 			["PlayerMgmt_TP_Me_to_Player", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
+		};
+		case 9: //Kick to Independent
+		{
+			_targetUID = getPlayerUID _target;
+			pvar_punishTeamKiller = [_target, getPlayerUID _target, 1, _Name];
+			publicVariableServer "pvar_punishTeamKiller";
+			["PlayerMgmt_Kick_to_Indie", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 	};
 };

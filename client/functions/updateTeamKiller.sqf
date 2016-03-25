@@ -6,7 +6,7 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 
-if (_this < 2) exitWith
+if (_this select 0 < 2) exitWith
 {
 	call teamkillMessage;
 };
@@ -22,9 +22,18 @@ sleep 1;
 sleep 3;
 
 uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
+if (_this select 1 == 1) then {
+_msgBox = [format [localize "STR_WL_Punish_adminkick", _this select 2]] spawn BIS_fnc_guiMessage;
+_time = diag_tickTime;
+
+waitUntil {scriptDone _msgBox || diag_tickTime - _time >= 20};
+endMission "LOSER";
+} else {
 _msgBox = [localize "STR_WL_Punish_Teamkiller"] spawn BIS_fnc_guiMessage;
 _time = diag_tickTime;
 
 waitUntil {scriptDone _msgBox || diag_tickTime - _time >= 20};
 endMission "LOSER";
+};
+
 waitUntil {uiNamespace setVariable ["BIS_fnc_guiMessage_status", false]; closeDialog 0; false};

@@ -32,7 +32,7 @@ class PlayersMenu
 			x = 0.1875 * safezoneW + safezoneX;
 			y = 0.15 * safezoneH + safezoneY;
 			w = 0.60 * safezoneW;
-			h = 0.661111 * safezoneH;
+			h = 0.721111 * safezoneH;
 		};
 
 		class TopBar: IGUIBack
@@ -237,6 +237,18 @@ class PlayersMenu
 			w = 0.105 * safezoneW;
 			h = 0.04 * safezoneH;
 			tooltip = "Teleports selected player to you.";
+		};
+		
+		class LocktoIndie: w_RscButton
+		{
+			idc = -1;
+			text = "Kick to Indie";
+			onButtonClick = "[9] execVM 'client\systems\adminPanel\playerSelect.sqf'";
+			x = 0.482 * safezoneW + safezoneX;
+			y = 0.796 * safezoneH + safezoneY;
+			w = 0.105 * safezoneW;
+			h = 0.04 * safezoneH;
+			tooltip = "Kicks selected player to Independent(Like Teamkill kick).";
 		};
 		
 		class TPMtoP_Button: w_RscButton
