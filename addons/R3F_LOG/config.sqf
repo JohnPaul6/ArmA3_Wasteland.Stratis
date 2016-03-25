@@ -264,26 +264,26 @@ R3F_LOG_CFG_can_be_towed = R3F_LOG_CFG_can_be_towed +
 	// e.g. : "MyTowableObjectClassName1", "MyTowableObjectClassName2"
 	"Hatchback_01_base_F",
 	"SUV_01_base_F",
-	"Offroad_01_base_F",
-	"Van_01_base_F",
+	//"Offroad_01_base_F", // Removed to stop lifting of repair vehicle
+	"C_Offroad_01_F",
+	"I_G_Offroad_01_F",
+	"B_G_Offroad_01_F",
+	"O_G_Offroad_01_F",
+	"Offroad_01_armed_base_F",
+	"I_G_Offroad_01_armed_F",
+	"B_G_Offroad_01_armed_F",
+	"O_G_Offroad_01_armed_F",
+	//"Van_01_base_F", // Removed to stop lifting of Fuel and Ammo trucks
 	"MRAP_01_base_F",
 	"MRAP_02_base_F",
 	"MRAP_03_base_F",
-	"Truck_01_base_F",
-	"Truck_02_base_F",
-	"Truck_03_base_F",
 	"UGV_01_base_F",
 	"SDV_01_base_F",
 	"Boat_Civil_01_base_F",
 	"Boat_Armed_01_base_F",
 	"Helicopter_Base_F",
-	"Wheeled_APC_F",
-	"APC_Tracked_01_base_F",
-	"APC_Tracked_02_base_F",
-	"APC_Tracked_03_base_F",
-	"MBT_01_base_F",
-	"MBT_02_base_F",
-	"MBT_03_base_F",
+	"C_Van_01_box_F",
+	"C_Van_01_transport_F",
 	"Plane"
 ];
 
@@ -307,33 +307,27 @@ R3F_LOG_CFG_can_lift = R3F_LOG_CFG_can_lift +
 R3F_LOG_CFG_can_be_lifted = R3F_LOG_CFG_can_be_lifted +
 [
 	// e.g. : "MyLiftableObjectClassName1", "MyLiftableObjectClassName2"
-	//"Land_Device_assembled_F", // Base locker
-	//"ReammoBox_F",
 	"Hatchback_01_base_F",
 	"SUV_01_base_F",
-	"Offroad_01_base_F",
-	"Van_01_base_F",
+	//"Offroad_01_base_F", // Removed to stop lifting of repair vehicle
+	"C_Offroad_01_F",
+	"I_G_Offroad_01_F",
+	"B_G_Offroad_01_F",
+	"O_G_Offroad_01_F",
+	"Offroad_01_armed_base_F",
+	"I_G_Offroad_01_armed_F",
+	"B_G_Offroad_01_armed_F",
+	"O_G_Offroad_01_armed_F",
+	//"Van_01_base_F", // Removed to stop lifting of Fuel vehicle
+	"C_Van_01_box_F",
+	"C_Van_01_transport_F",
 	"MRAP_01_base_F",
 	"MRAP_02_base_F",
 	"MRAP_03_base_F",
-	"Truck_01_base_F",
-	"Truck_02_base_F",
-	"Truck_03_base_F",
 	"UGV_01_base_F",
 	"SDV_01_base_F",
 	"Boat_Civil_01_base_F",
-	"Boat_Armed_01_base_F",
-	"Wheeled_APC_F",
-	"APC_Tracked_01_base_F",
-	"APC_Tracked_02_base_F",
-	"APC_Tracked_03_base_F",
-	"MBT_01_base_F",
-	"MBT_02_base_F",
-	"MBT_03_base_F",
-	"Land_Pod_Heli_Transport_04_box_F",
-	"Land_CargoBox_V1_F",
-	"Land_Cargo20_yellow_F",
-	"Land_Cargo40_white_F"
+	"Boat_Armed_01_base_F"
 ];
 
 
@@ -379,17 +373,13 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 	["Boat_Armed_01_base_F", 20],
 	["Heli_Light_01_base_F", 10],
 	["Heli_Light_02_base_F", 20],
-	["Heli_light_03_base_F", 20],
+	["I_Heli_light_03_base_F", 20],
 	["Heli_Transport_01_base_F", 25],
 	["Heli_Transport_02_base_F", 30],
-	["Heli_Transport_03_base_F", 150],
+	["Heli_Transport_03_base_F", 30],
 	["Heli_Transport_04_base_F", 30],
 	["Heli_Attack_01_base_F", 10],
-	["Heli_Attack_02_base_F", 20],
-	["Land_Pod_Heli_Transport_04_box_F", 300],
-	["Land_CargoBox_V1_F", 500],
-	["Land_Cargo20_yellow_F", 1000],
-	["Land_Cargo40_white_F", 2000]
+	["Heli_Attack_02_base_F", 20]
 ];
 
 /**
@@ -404,17 +394,13 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 	// e.g. : ["MyTransportableObjectClassName1", itsCost], ["MyTransportableObjectClassName2", itsCost]
 	["Static_Designator_01_base_F", 2],
 	["Static_Designator_02_base_F", 2],
-	["Land_Canal_Wall_10m_F", 10], // Base door
-	["Land_InfoStand_V2_F", 3], // Base door key
-	["Land_Device_assembled_F", 10], // Base locker
 	["StaticWeapon", 5],
 	["Box_NATO_AmmoVeh_F", 10],
-	["B_supplyCrate_F", 3],
-	["ReammoBox_F", 5],
+	["B_supplyCrate_F", 5],
+	["ReammoBox_F", 3],
 	["Kart_01_Base_F", 5],
 	["Quadbike_01_base_F", 10],
 	["Rubber_duck_base_F", 10],
-	["SDV_01_base_F", 15],
 	["UAV_01_base_F", 2],
 	["Land_BagBunker_Large_F", 10],
 	["Land_BagBunker_Small_F", 5],
@@ -427,10 +413,9 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 	["Land_BarGate_F", 3],
 	["Land_Canal_WallSmall_10m_F", 4],
 	["Land_Canal_Wall_Stairs_F", 3],
-	//["Land_CargoBox_V1_F", 5],
+	["Land_CargoBox_V1_F", 5],
 	["Land_Cargo_Patrol_V1_F", 7],
 	["Land_Cargo_Tower_V1_F", 30],
-	["Land_Cargo_HQ_V1_F", 30], // Added on player request
 	["Land_CncBarrier_F", 4],
 	["Land_CncBarrierMedium_F", 4],
 	["Land_CncBarrierMedium4_F", 4],
@@ -454,17 +439,13 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 	["Land_Pipes_large_F", 5],
 	["Land_RampConcreteHigh_F", 6],
 	["Land_RampConcrete_F", 5],
-	["BlockConcrete_F", 25],
 	["Land_Razorwire_F", 5],
 	["Land_Sacks_goods_F", 2],
 	["Land_Scaffolding_F", 5],
 	["Land_Shoot_House_Wall_F", 3],
 	["Land_Stone_8m_F", 5],
 	["Land_ToiletBox_F", 2],
-	["Land_BarrelWater_F", 2],
-	["Land_LampHalogen_F", 5],
-	["Land_GH_Platform_F", 25], 
-	["Land_FirePlace_F", 1]
+	["Land_BarrelWater_F", 2]
 ];
 
 /****** MOVABLE-BY-PLAYER OBJECTS / OBJETS DEPLACABLES PAR LE JOUEUR ******/
@@ -476,11 +457,6 @@ R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
 R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +
 [
 	// e.g. : "MyMovableObjectClassName1", "MyMovableObjectClassName2"
-	"Static_Designator_01_base_F",
-	"Static_Designator_02_base_F",
-	"Land_Canal_Wall_10m_F", // Base door
-	"Land_InfoStand_V2_F", // Base door key
-	"Land_Device_assembled_F", //relocker
 	"StaticWeapon",
 	"ReammoBox_F",
 	"Kart_01_Base_F",
@@ -502,7 +478,6 @@ R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +
 	"Land_CargoBox_V1_F",
 	"Land_Cargo_Patrol_V1_F",
 	"Land_Cargo_Tower_V1_F",
-	"Land_Cargo_HQ_V1_F", // Added on player request
 	"Land_CncBarrier_F",
 	"Land_CncBarrierMedium_F",
 	"Land_CncBarrierMedium4_F",
@@ -526,20 +501,11 @@ R3F_LOG_CFG_can_be_moved_by_player = R3F_LOG_CFG_can_be_moved_by_player +
 	"Land_Pipes_large_F",
 	"Land_RampConcreteHigh_F",
 	"Land_RampConcrete_F",
-	"BlockConcrete_F",
 	"Land_Razorwire_F",
 	"Land_Sacks_goods_F",
 	"Land_Scaffolding_F",
 	"Land_Shoot_House_Wall_F",
 	"Land_Stone_8m_F",
 	"Land_ToiletBox_F",
-	"Land_BarrelWater_F",
-	"Land_HandyCam_F",
-	"Land_Laptop_F",
-	"Land_Pod_Heli_Transport_04_box_F",
-	"Land_LampHalogen_F",
-	"Land_GH_Platform_F", 
-	"Land_FirePlace_F",
-	"Land_Cargo20_yellow_F",
-	"Land_Cargo40_white_F"
+	"Land_BarrelWater_F"
 ];
