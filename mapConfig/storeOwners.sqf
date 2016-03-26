@@ -11,31 +11,35 @@
 storeOwnerConfig = compileFinal str
 [
 	["GenStore1", 1, 270, []],
-	["GenStore2", 4, 310, []],
+	["GenStore2", 6, 30, []],
 	["GenStore3", 4, 340, []],
+	["GenStore4", 1, 210, []],
 
 	["GunStore1", 0, 5, []],
 	["GunStore2", 1, 130, []],
 	["GunStore3", 5, 85, []],
-	["GunStore4", 1, [30, 1.5], []],
+	["GunStore4", 1, 320, []],
+	["GunStore5", 1, [330,-2], []],
 
 	// Buttons you can disable: "Land", "Armored", "Tanks", "Helicopters", "Boats", "Planes"
 	["VehStore1", 0, 195, ["Planes"]],
 	["VehStore2", 2, 285, ["Boats"]],
-	["VehStore3", 1, 245, ["Planes"]]
+	["VehStore3", 1, 320, ["Planes","Boats"]]
 ];
 
 // Outfits for store owners
 storeOwnerConfigAppearance = compileFinal str
 [
-	["GenStore1", [["weapon", ""], ["uniform", "U_IG_Guerilla2_2"]]],
-	["GenStore2", [["weapon", ""], ["uniform", "U_IG_Guerilla2_3"]]],
-	["GenStore3", [["weapon", ""], ["uniform", "U_IG_Guerilla3_1"]]],
+	["GenStore1", [["weapon", "srifle_EBR_ARCO_pointer_snds_F"], ["uniform", "U_Rangemaster"]]],
+	["GenStore2", [["weapon", "srifle_EBR_ARCO_pointer_snds_F"], ["uniform", "U_Rangemaster"]]],
+	["GenStore3", [["weapon", "srifle_EBR_ARCO_pointer_snds_F"], ["uniform", "U_Rangemaster"]]],
+	["GenStore4", [["weapon", "srifle_EBR_ARCO_pointer_snds_F"], ["uniform", "U_Rangemaster"]]],
 
-	["GunStore1", [["weapon", ""], ["uniform", "U_B_SpecopsUniform_sgg"]]],
-	["GunStore2", [["weapon", ""], ["uniform", "U_O_SpecopsUniform_blk"]]],
-	["GunStore3", [["weapon", ""], ["uniform", "U_I_CombatUniform_tshirt"]]],
-	["GunStore4", [["weapon", ""], ["uniform", "U_IG_Guerilla1_1"]]],
+	["GunStore1", [["weapon", "srifle_DMR_02_sniper_F"], ["uniform", "U_B_FullGhillie_lsh"]]],
+	["GunStore2", [["weapon", "MMG_02_camo_F"], ["uniform", "U_B_FullGhillie_sard"]]],
+	["GunStore3", [["weapon", "srifle_DMR_06_olive_F"], ["uniform", "U_B_FullGhillie_ard"]]],
+	["GunStore4", [["weapon", "srifle_DMR_05_DMS_snds_F"], ["uniform", "U_O_FullGhillie_lsh"]]],
+	["GunStore5", [["weapon", "MMG_01_hex_F"], ["uniform", "U_O_FullGhillie_sard"]]],
 
 	["VehStore1", [["weapon", ""], ["uniform", "U_Competitor"]]],
 	["VehStore2", [["weapon", ""], ["uniform", "U_Competitor"]]],
