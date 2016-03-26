@@ -36,11 +36,11 @@ switch (_lockState) do
 		//_iteration = 0;
 
 		// Points of interest
-		_poiDist = ["A3W_poiObjLockDistance", 100] call getPublicVar;
+		_poiDist = ["A3W_poiObjLockDistance", 300] call getPublicVar;
 		_poiMarkers = [];
 
 		{
-			if (getMarkerType _x == "Empty" && {(toLower (_x select [0,8])) in ["genstore","gunstore","vehstore","mission_"]}) then
+			if (getMarkerType _x == "Empty" && {(toLower (_x select [0,8])) in ["genstore","vehstore","mission_"]}) then
 			{
 				_poiMarkers pushBack _x;
 			};
@@ -49,7 +49,7 @@ switch (_lockState) do
 		if ({(getPosASL player) vectorDistance (ATLtoASL getMarkerPos _x) < _poiDist} count _poiMarkers > 0) exitWith
 		{
 			playSound "FD_CP_Not_Clear_F";
-			[format ["You are not allowed to lock objects within %1m of stores and mission spawns", _poiDist], 5] call mf_notify_client;
+			[format ["You are not allowed to lock objects within %1m of stores and mission spawns (besides Gun Store)", _poiDist], 5] call mf_notify_client;
 			R3F_LOG_mutex_local_verrou = false;
 		};
 
