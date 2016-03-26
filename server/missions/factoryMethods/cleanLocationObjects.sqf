@@ -6,7 +6,7 @@
 
 if (!isServer) exitWith {};
 
-#define CLEANUP_RADIUS 50
+#define CLEANUP_RADIUS 300
 
 private ["_locArray", "_locName", "_locPos"];
 
@@ -22,7 +22,7 @@ if (_locPos isEqualTo [0,0,0]) exitWith {};
 		_locObjects = _x param [3, [], [[]]];
 
 		{
-			if (_x distance _locPos <= CLEANUP_RADIUS && _x getVariable ["ownerUID", ""] == "") then
+			if (_x distance _locPos <= CLEANUP_RADIUS ) then
 			{
 				deleteVehicle _x;
 			};
