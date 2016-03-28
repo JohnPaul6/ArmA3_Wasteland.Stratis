@@ -298,6 +298,17 @@ class PlayersMenu
  			w = 0.05 * (4/3) * SZ_SCALE_ABS;
  			h = 0.04 * SZ_SCALE_ABS;
 		};
+		
+		class WarnAllButton: w_RscButton 
+		{
+			idc = -1;
+			text = "Warn All";
+			onButtonClick = "[10] execVM 'client\systems\adminPanel\playerSelect.sqf'";
+			x = 0.6555 * (4/3) * SZ_SCALE_ABS + safezoneX;
+ 			y = 0.70 * SZ_SCALE_ABS + safezoneY;
+ 			w = 0.07 * (4/3) * SZ_SCALE_ABS;
+ 			h = 0.04 * SZ_SCALE_ABS;
+		};
 
 		/*class DonationButton: w_RscButton
 		{

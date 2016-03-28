@@ -34,15 +34,14 @@ if (_uid call isAdmin) then
 			_target = _x;
 		};
 	} forEach allPlayers;
-
-
-	if (isNil "_target" || {isNull _target}) exitWith{};
-
+	
 
 	switch (_switch) do
 	{
 		case 0: //Spectate
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			if (!isNil "_target") then
 			{
 				_spectating = ctrlText _spectateButton;
@@ -70,30 +69,40 @@ if (_uid call isAdmin) then
 		};
 		case 1: //Warn
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			_warnText = ctrlText _warnMessage;
 			_playerName = name player;
-			[format ["Message from Admin: %1", _warnText], "A3W_fnc_titleTextMessage", _target, false] call A3W_fnc_MP;
+			[format ["Message from %2: %1", _warnText, _Name], "A3W_fnc_titleTextMessage", _target, false] call A3W_fnc_MP;
 			["PlayerMgmt_Warn", format ["%1 (%2) - %3", name _target, getPlayerUID _target, _warnText]] call notifyAdminMenu;
 		};
 		case 2: //Slay
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			_target setDamage 1;
 			["PlayerMgmt_Slay", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 3: //Unlock Team Switcher
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+		
 			pvar_teamSwitchUnlock = getPlayerUID _target;
 			publicVariableServer "pvar_teamSwitchUnlock";
 			["PlayerMgmt_UnlockTeamSwitch", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 4: //Unlock Team Killer
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+		
 			pvar_teamKillUnlock = getPlayerUID _target;
 			publicVariableServer "pvar_teamKillUnlock";
 			["PlayerMgmt_UnlockTeamKill", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 5: //Remove All Money
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
@@ -105,6 +114,8 @@ if (_uid call isAdmin) then
 		};
 		case 6: //Unstuck Selected Player
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
@@ -117,6 +128,8 @@ if (_uid call isAdmin) then
 		};
 		case 7: //Teleport Player to Me
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
@@ -131,6 +144,8 @@ if (_uid call isAdmin) then
 		{
 			_targetUID = getPlayerUID _target;
 			{
+				if (isNil "_target" || {isNull _target}) exitWith{};
+				
 				if(getPlayerUID _x == _targetUID) exitWith
 				{
 					vehicle player setPos (position _x);
@@ -140,10 +155,21 @@ if (_uid call isAdmin) then
 		};
 		case 9: //Kick to Independent
 		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			
 			_targetUID = getPlayerUID _target;
 			pvar_punishTeamKiller = [_target, getPlayerUID _target, 1, _Name];
 			publicVariableServer "pvar_punishTeamKiller";
 			["PlayerMgmt_Kick_to_Indie", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
+		};
+		case 10: //Message All
+		{
+			if (["Are you sure you want to message everyone this message?", "Confirm", "Yes", true] call BIS_fnc_guiMessage) then
+			{
+				_warnText = ctrlText _warnMessage;
+				[format ["Global Message from %2: %1", _warnText, _Name], "A3W_fnc_titleTextMessage"] call A3W_fnc_MP;
+				["PlayerMgmt_WarnAll", format ["%1", _warnText]] call notifyAdminMenu;
+			};
 		};
 	};
 };
