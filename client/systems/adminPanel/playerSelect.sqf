@@ -80,7 +80,8 @@ if (_uid call isAdmin) then
 		{
 			if (isNil "_target" || {isNull _target}) exitWith{};
 			
-			_target setDamage 1;
+
+			if (damage _target < 1) then { _target setDamage 1 }; // if check required to prevent "Killed" EH from getting triggered twice
 			["PlayerMgmt_Slay", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 3: //Unlock Team Switcher
