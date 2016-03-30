@@ -73,6 +73,8 @@ loadScreen = "mapConfig\Loading.jpg";
 //CHVD - Custom Render Distance
 #include "addons\CHVD\dialog.hpp"
 
+//Voice Control Dialogs
+#include "addons\VoiceControl\voiceControl.cpp" // Voice Control
 
 class RscTitles
 {
