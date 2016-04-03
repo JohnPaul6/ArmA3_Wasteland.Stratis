@@ -16,6 +16,10 @@ _locPos = param [2, [], [[]]];
 
 if (_locPos isEqualTo [0,0,0]) exitWith {};
 
+
+{deleteVehicle _x} forEach nearestObjects [_locPos, [], CLEANUP_RADIUS];
+
+/*
 {
 	if (_x select 0 == _locName) exitWith
 	{
@@ -31,3 +35,4 @@ if (_locPos isEqualTo [0,0,0]) exitWith {};
 		_x set [3, []];
 	};
 } forEach _locArray;
+*/
