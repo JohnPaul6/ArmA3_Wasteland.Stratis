@@ -17,7 +17,18 @@ _setupVars =
 
 _setupObjects =
 {
-	_missionPos = markerPos (((call cityList) call BIS_fnc_selectRandom) select 0);
+	_spawnlist = 
+	[
+	"HostileHeli_1",
+	"HostileHeli_2",
+	"HostileHeli_3",
+	"HostileHeli_4",
+	"HostileHeli_5",
+	"HostileHeli_6",
+	"HostileHeli_7",
+	"HostileHeli_8"
+	];
+	_missionPos = markerPos (_spawnlist call BIS_fnc_selectRandom);
 
 	_vehicleClass = if (missionDifficultyHard) then
 	{

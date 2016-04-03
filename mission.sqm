@@ -4890,7 +4890,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=171;
+		items=187;
 		class Item0
 		{
 			position[]={4339.3457,226.45149,3824.2236};
@@ -6221,6 +6221,102 @@ class Mission
 			type="Empty";
 			colorName="ColorOrange";
 			angle=-0.48726693;
+		};
+		class Item171
+		{
+			position[]={15.138059,0.010375574,12.634766};
+			name="HostileHeli_1";
+			type="Empty";
+		};
+		class Item172
+		{
+			position[]={25.865517,0.29165626,8168.9775};
+			name="HostileHeli_2";
+			type="Empty";
+		};
+		class Item173
+		{
+			position[]={8154.6279,0.025296763,8154.1318};
+			name="HostileHeli_3";
+			type="Empty";
+		};
+		class Item174
+		{
+			position[]={8115.5459,0.27955163,74.638672};
+			name="HostileHeli_4";
+			type="Empty";
+		};
+		class Item175
+		{
+			position[]={53.403419,0.055942871,52.685547};
+			name="HostileJet_1";
+			type="Empty";
+		};
+		class Item176
+		{
+			position[]={57.72245,-0.16214049,8170.9771};
+			name="HostileJet_2";
+			type="Empty";
+		};
+		class Item177
+		{
+			position[]={8085.3726,-0.054586433,8155.3667};
+			name="HostileJet_3";
+			type="Empty";
+		};
+		class Item178
+		{
+			position[]={8014.0005,-0.044144865,112.2168};
+			name="HostileJet_4";
+			type="Empty";
+		};
+		class Item179
+		{
+			position[]={3996.574,-0.29888192,101.12646};
+			name="HostileHeli_5";
+			type="Empty";
+		};
+		class Item180
+		{
+			position[]={130.31662,-0.1152129,4108.4883};
+			name="HostileHeli_6";
+			type="Empty";
+		};
+		class Item181
+		{
+			position[]={5816.8188,0.060403489,8108.7949};
+			name="HostileHeli_7";
+			type="Empty";
+		};
+		class Item182
+		{
+			position[]={8067.4302,-0.12640235,3353.5801};
+			name="HostileHeli_8";
+			type="Empty";
+		};
+		class Item183
+		{
+			position[]={4821.708,0.090953909,83.393066};
+			name="HostileJet_5";
+			type="Empty";
+		};
+		class Item184
+		{
+			position[]={132.83836,0.15602553,6935.0464};
+			name="HostileJet_6";
+			type="Empty";
+		};
+		class Item185
+		{
+			position[]={2040.1746,0.11568436,8104.4258};
+			name="HostileJet_7";
+			type="Empty";
+		};
+		class Item186
+		{
+			position[]={8046.0146,0.26628825,6639.8633};
+			name="HostileJet_8";
+			type="Empty";
 		};
 	};
 };

@@ -17,7 +17,18 @@ _setupVars =
 
 _setupObjects =
 {
-	_missionPos = markerPos (((call cityList) call BIS_fnc_selectRandom) select 0);
+	_spawnlist = 
+	[
+	"HostileJet_1",
+	"HostileJet_2",
+	"HostileJet_3",
+	"HostileJet_4",
+	"HostileJet_5",
+	"HostileJet_6",
+	"HostileJet_7",
+	"HostileJet_8"
+	];
+	_missionPos = markerPos (_spawnlist call BIS_fnc_selectRandom);
 
 	_planeChoices =
 	[

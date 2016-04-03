@@ -17,7 +17,18 @@ _setupVars =
 
 _setupObjects =
 {
-	_missionPos = markerPos (((call cityList) call BIS_fnc_selectRandom) select 0);
+	_spawnlist = 
+	[
+	"HostileHeli_1",
+	"HostileHeli_2",
+	"HostileHeli_3",
+	"HostileHeli_4",
+	"HostileHeli_5",
+	"HostileHeli_6",
+	"HostileHeli_7",
+	"HostileHeli_8"
+	];
+	_missionPos = markerPos (_spawnlist call BIS_fnc_selectRandom);
 
 	_heliChoices =
 	[
@@ -98,9 +109,9 @@ _setupObjects =
 
 	_vehicles =
 	[
-		[_veh1, _missionPos vectorAdd ([[random 50, 0, 0], random 360] call BIS_fnc_rotateVector2D), 0] call _createVehicle,
-		[_veh2, _missionPos vectorAdd ([[random 50, 0, 0], random 360] call BIS_fnc_rotateVector2D), 0] call _createVehicle,
-		[_veh3, _missionPos vectorAdd ([[random 50, 0, 0], random 360] call BIS_fnc_rotateVector2D), 0] call _createVehicle
+		[_veh1, _missionPos vectorAdd ([[random 250, 0, 0], random 360] call BIS_fnc_rotateVector2D), 0] call _createVehicle,
+		[_veh2, _missionPos vectorAdd ([[random 250, 0, 0], random 360] call BIS_fnc_rotateVector2D), 0] call _createVehicle,
+		[_veh3, _missionPos vectorAdd ([[random 250, 0, 0], random 360] call BIS_fnc_rotateVector2D), 0] call _createVehicle
 	];
 
 	_leader = effectiveCommander (_vehicles select 0);
