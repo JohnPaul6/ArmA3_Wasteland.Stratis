@@ -4890,7 +4890,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=162;
+		items=171;
 		class Item0
 		{
 			position[]={4339.3457,226.45149,3824.2236};
@@ -6155,6 +6155,72 @@ class Mission
 			type="Empty";
 			colorName="ColorBlack";
 			angle=-0.066980503;
+		};
+		class Item162
+		{
+			position[]={4455.3647,194.80666,4234.3472};
+			name="RoadBlock_1";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item163
+		{
+			position[]={4654.4561,139.46431,5927.7764};
+			name="RoadBlock_2";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item164
+		{
+			position[]={2914.248,138.70166,4954.9907};
+			name="RoadBlock_5";
+			type="Empty";
+			colorName="ColorOrange";
+			angle=43.215256;
+		};
+		class Item165
+		{
+			position[]={4654.4561,139.46431,5927.7764};
+			name="RoadBlock_2_2";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item166
+		{
+			position[]={3526.0884,141.74727,2691.019};
+			name="RoadBlock_3";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item167
+		{
+			position[]={3526.0884,141.74727,2691.019};
+			name="RoadBlock_2_2_1";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item168
+		{
+			position[]={2283.5295,55.592316,2208.1421};
+			name="RoadBlock_4";
+			type="Empty";
+			colorName="ColorOrange";
+		};
+		class Item169
+		{
+			position[]={3746.7063,180.17107,3102.4263};
+			name="RoadBlock_6";
+			type="Empty";
+			colorName="ColorOrange";
+			angle=-4.215055;
+		};
+		class Item170
+		{
+			position[]={2552.8394,51.272839,957.06055};
+			name="RoadBlock_8";
+			type="Empty";
+			colorName="ColorOrange";
+			angle=-0.48726693;
 		};
 	};
 };
