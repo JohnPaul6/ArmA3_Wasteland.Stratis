@@ -35,7 +35,8 @@ if (_isHC) then
 
 while {true} do
 {
-	uiSleep _savingInterval;
+	//uiSleep _savingInterval;
+	uiSleep 120;
 
 	_objCount = 0;
 	_currObjectIDs = [];
@@ -81,7 +82,8 @@ while {true} do
 
 	if (_isHC) then { "A3W_objectIDs" call _hcSaveProfileVar };
 
-	uiSleep _savingInterval;
+	//uiSleep _savingInterval;
+	uiSleep 120;
 
 	// Vehicle saving
 	if (_vehicleSaving) then

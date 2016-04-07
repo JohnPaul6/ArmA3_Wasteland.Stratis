@@ -82,7 +82,7 @@ if (["A3W_playerSaving"] call isConfigOn) then
 		// Save player every 60s
 		while {true} do
 		{
-			sleep 60;
+			sleep 120;
 			call fn_savePlayerData;
 		};
 	});
