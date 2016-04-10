@@ -21,24 +21,14 @@ class GroupManagement {
 
 	class controlsBackground {
 
-		class MainBG : IGUIBack {
+		class MainBG : w_RscPicture {
 			idc = -1;
-			colorText[] = {1, 1, 1, 1};
-			colorBackground[] = {0,0,0,0.6};
-
-			moving = true;
-			x = 0.0; y = 0.1;
-			w = 0.745; h = 0.65;
-		};
-
-		class TopBar: IGUIBack
-		{
-			idc = -1;
-			colorText[] = {1, 1, 1, 1};
-			colorBackground[] = {A3W_UICOLOR_R, A3W_UICOLOR_G, A3W_UICOLOR_B, 0.8};
-
-			x = 0.0; y = 0.1;
-			w = 0.745; h = 0.05;
+			text = "client\systems\playerMenu\dialog\img\SGW-Inventory.paa";
+			moving = false;
+			x = 0; 
+			y = -0.25;
+			w = 1; 
+			h = 1.35;
 		};
 
 		class MainTitle : w_RscText {
@@ -46,7 +36,7 @@ class GroupManagement {
 			text = "Group Management";
 			sizeEx = 0.04;
 			shadow = 2;
-			x = 0.260; y = 0.10;
+			x = 0.360; y = 0.10;
 			w = 0.3; h = 0.05;
 		};
 
@@ -55,7 +45,7 @@ class GroupManagement {
 			text = "Players";
 			sizeEx = 0.025;
 			shadow = 2;
-			x = 0.0875; y = 0.155;
+			x = 0.1875; y = 0.155;
 			w = 0.3; h = 0.050;
 		};
 
@@ -64,7 +54,7 @@ class GroupManagement {
 			text = "Your Group";
 			sizeEx = 0.025;
 			shadow = 2;
-			x = 0.5575; y = 0.155;
+			x = 0.6575; y = 0.155;
 			w = 0.3; h = 0.050;
 		};
 
@@ -74,7 +64,7 @@ class GroupManagement {
 			text = "";
 			size = 0.025;
 
-			x = 0.255; y = 0.500;
+			x = 0.355; y = 0.500;
 			w = 0.235; h = 0.075;
 		};
 	};
@@ -84,21 +74,22 @@ class GroupManagement {
 		class PlayerListBox : w_Rsclist {
 			idc = groupManagementPlayerList;
 			onLBSelChanged = "[] execVM 'client\systems\groups\playerSelectChange.sqf'";
-			x = 0.020; y = 0.200;
+			x = 0.120; y = 0.200;
 			w = 0.235; h = 0.425;
 		};
 
 		class GroupListBox : w_Rsclist {
 			idc = groupManagementGroupList;
-			x = 0.490; y = 0.200;
+			x = 0.590; y = 0.200;
 			w = 0.235; h = 0.425;
 		};
 
 		class CloseButton : w_RscButton {
 			idc = -1;
 			text = "Close";
+			colorBackground[] = {0, 0, 0, 0};
 			onButtonClick = "closeDialog 0; groupManagmentActive = false;";
-			x = 0.02; y = 0.662;
+			x = 0.16; y = 0.70; //x = 0.02; y = 0.66; .138 differnce 
 			w = 0.125; h = 0.033 * safezoneH;
 		};
 
@@ -106,7 +97,7 @@ class GroupManagement {
 			idc = groupManagementInviteButton;
 			text = "Invite";
 			onButtonClick = "[] execVM 'client\systems\groups\inviteToGroup.sqf'";
-			x = 0.3075; y = 0.200;
+			x = 0.4075; y = 0.200;
 			w = 0.14; h = 0.033 * safezoneH;
 		};
 
@@ -114,7 +105,7 @@ class GroupManagement {
 			idc = groupManagementPromoteButton;
 			text = "Promote";
 			onButtonClick = "[] execVM 'client\systems\groups\promotePlayer.sqf'";
-			x = 0.3075; y = 0.270;
+			x = 0.4075; y = 0.270;
 			w = 0.14; h = 0.033 * safezoneH;
 		};
 
@@ -122,7 +113,7 @@ class GroupManagement {
 			idc = groupManagementKickButton;
 			text = "Kick";
 			onButtonClick = "[] execVM 'client\systems\groups\kickFromGroup.sqf'";
-			x = 0.3075; y = 0.340;
+			x = 0.4075; y = 0.340;
 			w = 0.14; h = 0.033 * safezoneH;
 		};
 
@@ -130,7 +121,7 @@ class GroupManagement {
 			idc = groupManagementDisbandButton;
 			text = "Disband";
 			onButtonClick = "[] execVM 'client\systems\groups\disbandGroup.sqf'";
-			x = 0.3075; y = 0.410;
+			x = 0.4075; y = 0.410;
 			w = 0.14; h = 0.033 * safezoneH;
 		};
 
@@ -138,7 +129,7 @@ class GroupManagement {
 			idc = groupManagementLeaveButton;
 			text = "Leave";
 			onButtonClick = "[] execVM 'client\systems\groups\leaveGroup.sqf'";
-			x = 0.3075; y = 0.480;
+			x = 0.4075; y = 0.480;
 			w = 0.14; h = 0.033 * safezoneH;
 		};
 
@@ -146,7 +137,7 @@ class GroupManagement {
 			idc = groupManagementAcceptButton;
 			text = "Accept";
 			onButtonClick = "[] execVM 'client\systems\groups\acceptGroupInvite.sqf'";
-			x = 0.275; y = 0.625 - 0.0255 * safezoneH;
+			x = 0.375; y = 0.625 - 0.0255 * safezoneH;
 			w = 0.100; h = 0.033 * safezoneH;
 		};
 
@@ -154,7 +145,7 @@ class GroupManagement {
 			idc = groupManagementDeclineButton;
 			text = "Decline";
 			onButtonClick = "[] execVM 'client\systems\groups\declineGroupInvite.sqf'";
-			x = 0.375; y = 0.625 - 0.0255 * safezoneH;
+			x = 0.475; y = 0.625 - 0.0255 * safezoneH;
 			w = 0.100; h = 0.033 * safezoneH;
 		};
 	};
