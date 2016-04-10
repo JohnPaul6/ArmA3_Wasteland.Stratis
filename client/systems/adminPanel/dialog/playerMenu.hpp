@@ -309,6 +309,18 @@ class PlayersMenu
  			w = 0.07 * (4/3) * SZ_SCALE_ABS;
  			h = 0.04 * SZ_SCALE_ABS;
 		};
+		
+		class Event1: w_RscButton
+		{
+			idc = -1;
+			text = "Event #1";
+			onButtonClick = "[11] execVM 'client\systems\adminPanel\playerSelect.sqf'";
+			x = 0.3705 * safezoneW + safezoneX;
+			y = 0.796 * safezoneH + safezoneY;
+			w = 0.105 * safezoneW;
+			h = 0.04 * safezoneH;
+			tooltip = "WIP";
+		};
 
 		/*class DonationButton: w_RscButton
 		{

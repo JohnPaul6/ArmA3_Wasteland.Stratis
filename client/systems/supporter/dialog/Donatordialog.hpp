@@ -17,15 +17,11 @@ class Donator {
 
 		class MainBG : w_RscPicture {
 			idc = -1;
-			colorText[] = {1, 1, 1, 1};
-			colorBackground[] = {0,0,0,0};
-			text = "client\systems\playerMenu\dialog\img\SGC_Tab_1.paa";
-			moving = true;
-			/*x = 0.0; y = 0.1;
-			w = 0.745; h = 0.65; */
-			x = -0.30; //was 0.28
+			text = "client\systems\playerMenu\dialog\img\SGW-Inventory.paa";
+			moving = false;
+			x = 0; 
 			y = -0.25;
-			w = 1.3; 
+			w = 1; 
 			h = 1.35;
 		};
 		
@@ -34,7 +30,7 @@ class Donator {
 			text = "Supporter Panel";
 			sizeEx = 0.04;
 			shadow = 2;
-			x = 0.260; y = 0.10;
+			x = 0.360; y = 0.10;
 			w = 0.3; h = 0.05;
 		};
 		
@@ -55,26 +51,24 @@ class Donator {
 			text = "Close";
 			colorBackground[] = {0, 0, 0, 0};
 			onButtonClick = "closeDialog 0;";
-			x = -0.14; y = 0.70; //x = 0.02; y = 0.66; .138 differnce 
+			x = 0.16; y = 0.70; //x = 0.02; y = 0.66; .138 differnce 
 			w = 0.125; h = 0.033 * safezoneH;
 		};
-
+		
 		class DonatorVehPaintButton : w_RscButton {
 			idc = DonatorVehPaintButton; 
 			text = "Paint Vehicle";
 			onButtonClick = "[] execVM 'addons\supporter_addons\VehiclePainter\VehiclePainter_Check.sqf'";
-			x = 0.3075; y = 0.200;
-			//w = 0.14; h = 0.033 * safezoneH;
-			w = 0.225; h = 0.033 * safezoneH;
+			x = 0.4075; y = 0.200;
+			w = 0.16; h = 0.033 * safezoneH;
 		};
 
 		class DonatorBodyPaintButton : w_RscButton {
 			idc = DonatorBodyPaintButton;
 			text = "Paint Player";
 			onButtonClick = "[] execVM 'addons\supporter_addons\UniformPainter\UniformPainter_Menu.sqf'";
-			x = 0.3075; y = 0.270;
-			//w = 0.14; h = 0.033 * safezoneH;
-			w = 0.225; h = 0.033 * safezoneH;
+			x = 0.4075; y = 0.270;
+			w = 0.16; h = 0.033 * safezoneH;
 		};
 	};
 };
