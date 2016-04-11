@@ -44,6 +44,9 @@ class A3W_fnc_setVectorUpAndDir { jip = 1; };
 class A3W_fnc_setVehicleAmmoDef {};
 class A3W_fnc_unflip {};
 
+// Server Events
+class A3W_fnc_Server_event_11 {};
+
 // Other third-party
 class APOC_srv_startAirdrop { allowedTargets = 2; };
 class JTS_FNC_SENT {};

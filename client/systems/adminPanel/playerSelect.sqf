@@ -172,5 +172,13 @@ if (_uid call isAdmin) then
 				["PlayerMgmt_WarnAll", format ["%1", _warnText]] call notifyAdminMenu;
 			};
 		};
+		case 11: //Jet Mission
+		{
+			if (isNil "_target" || {isNull _target}) exitWith{};
+			if (side _target == WEST || side _target == EAST) exitWith{hint "The player you selected is not in Independent and mission will not start! Please get the player to go Independent or pick an Independent player!";};
+			
+			[[_target,_Name], "A3W_fnc_Server_event_11", _target, false] call A3W_fnc_MP;
+			["Using Mission #1 WIP", format ["test"]] call notifyAdminMenu;
+		};
 	};
 };
