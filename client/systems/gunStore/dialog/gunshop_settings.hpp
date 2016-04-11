@@ -18,7 +18,15 @@ class gunshopd
 		#define GunStoreMainBG_H (0.65 * SZ_SCALE)
 		#define GunStoreMainBG_X CENTER(1, GunStoreMainBG_W)
 		#define GunStoreMainBG_Y CENTER(1, GunStoreMainBG_H)
-
+		
+		#define GunStoreImageMainBG_W (1.5333 * SZ_SCALE)
+		#define GunStoreImageMainBG_H (1.45 * SZ_SCALE)
+		#define GunStoreImageMainBG_X CENTER(1, GunStoreImageMainBG_W)
+		#define GunStoreImageMainBG_Y CENTER(1.5, GunStoreImageMainBG_H)
+		
+		#define GunStoreTopBar_H (0.05 * SZ_SCALE)
+		
+		/*
 		class MainBackground: IGUIBack
 		{
 			idc = -1;
@@ -43,7 +51,18 @@ class gunshopd
 			w = GunStoreMainBG_W;
 			h = GunStoreTopBar_H;
 		};
-
+		*/
+		
+		class MainBG : w_RscPicture {
+			idc = -1;
+			text = "client\systems\generalStore\dialog\img\SG-Laptop.paa";
+			moving = false;
+			x = GunStoreImageMainBG_X;
+			y = GunStoreImageMainBG_Y;
+			w = GunStoreImageMainBG_W;
+			h = GunStoreImageMainBG_H;
+		};
+		
 		class ItemSelectedPrice: w_RscStructuredTextLeft
 		{
 			idc = gunshop_gun_TEXT;

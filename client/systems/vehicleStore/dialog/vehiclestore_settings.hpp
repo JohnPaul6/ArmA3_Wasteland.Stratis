@@ -18,7 +18,15 @@ class vehshopd
 		#define VehStoreMainBG_H (0.65 * SZ_SCALE)
 		#define VehStoreMainBG_X CENTER(1, VehStoreMainBG_W)
 		#define VehStoreMainBG_Y CENTER(1, VehStoreMainBG_H)
-
+		
+		#define VehStoreImageMainBG_W (1.5333 * SZ_SCALE)
+		#define VehStoreImageMainBG_H (1.45 * SZ_SCALE)
+		#define VehStoreImageMainBG_X CENTER(1, VehStoreImageMainBG_W)
+		#define VehStoreImageMainBG_Y CENTER(1.5, VehStoreImageMainBG_H)
+		
+		#define VehStoreTopBar_H (0.05 * SZ_SCALE)
+		
+		/* Old Dialog Menu for vehicle store background and header bar.
 		class MainBackground: IGUIBack
 		{
 			idc = -1;
@@ -30,7 +38,7 @@ class vehshopd
 			w = VehStoreMainBG_W;
 			h = VehStoreMainBG_H;
 		};
-
+		
 		class TopBar: IGUIBack
 		{
 			idc = -1;
@@ -43,7 +51,18 @@ class vehshopd
 			w = VehStoreMainBG_W;
 			h = VehStoreTopBar_H;
 		};
-
+		*/
+		
+		class MainBG : w_RscPicture {
+			idc = -1;
+			text = "client\systems\generalStore\dialog\img\SG-Laptop.paa";
+			moving = false;
+			x = VehStoreImageMainBG_X;
+			y = VehStoreImageMainBG_Y;
+			w = VehStoreImageMainBG_W;
+			h = VehStoreImageMainBG_H;
+		};
+		
 		class ItemSelectedPrice: w_RscStructuredTextLeft
 		{
 			idc = vehshop_veh_TEXT;

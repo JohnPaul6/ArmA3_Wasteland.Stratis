@@ -18,7 +18,15 @@ class genstored
 		#define GenStoreMainBG_H (0.65 * SZ_SCALE)
 		#define GenStoreMainBG_X CENTER(1, GenStoreMainBG_W)
 		#define GenStoreMainBG_Y CENTER(1, GenStoreMainBG_H)
-
+		
+		#define GenStoreImageMainBG_W (1.5333 * SZ_SCALE)
+		#define GenStoreImageMainBG_H (1.45 * SZ_SCALE)
+		#define GenStoreImageMainBG_X CENTER(1, GenStoreImageMainBG_W)
+		#define GenStoreImageMainBG_Y CENTER(1.5, GenStoreImageMainBG_H)
+		
+		#define GenStoreTopBar_H (0.05 * SZ_SCALE)
+		
+		/* Old Dialog Menu for general store background and header bar.
 		class MainBackground: IGUIBack
 		{
 			idc = -1;
@@ -43,7 +51,18 @@ class genstored
 			w = GenStoreMainBG_W;
 			h = GenStoreTopBar_H;
 		};
-
+		*/
+		
+		class MainBG : w_RscPicture {
+			idc = -1;
+			text = "client\systems\generalStore\dialog\img\SG-Laptop.paa";
+			moving = false;
+			x = GenStoreImageMainBG_X;
+			y = GenStoreImageMainBG_Y;
+			w = GenStoreImageMainBG_W;
+			h = GenStoreImageMainBG_H;
+		};
+		
 		class DialogTitleText: w_RscTextCenter
 		{
 			idc = -1;
