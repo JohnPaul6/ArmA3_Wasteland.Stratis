@@ -97,3 +97,5 @@ if (hasInterface || isServer) then
 	[] execVM "addons\scripts\HvT.sqf"; // Watermark
 	if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
 };
+
+[1000,-1,true,100,1000,1000]execvm "cache\main.sqf";
