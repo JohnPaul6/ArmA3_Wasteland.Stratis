@@ -94,8 +94,8 @@ if (hasInterface || isServer) then
 	[] execVM "addons\lsd_nvg\init.sqf";
 	[] execVM "addons\VoiceControl\voiceControl.sqf"; // Voicecontrol
 	[] execVM "addons\watermark\logo.sqf"; // Watermark
-	[] execVM "addons\scripts\HvT.sqf"; // Watermark
+	[] execVM "addons\scripts\HvT.sqf"; // High Value Target ~ AgentRev 
 	if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
 };
 
-[1000,-1,true,100,1000,1000]execvm "cache\main.sqf";
+[1000,-1,false,100,1000,1000]execvm "cache\main.sqf";
