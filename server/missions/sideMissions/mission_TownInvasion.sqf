@@ -22,47 +22,98 @@ _setupVars =
 	_buildingRadius = _locArray select 1;
 	_townName = _locArray select 2;
 
-	//randomize amount of units
-	_nbUnits = _nbUnits + round(random (_nbUnits*0.5));
-	// reduce radius for larger towns. for example to avoid endless hide and seek in kavala ;)
-	_buildingRadius = if (_buildingRadius > 201) then {(_buildingRadius*0.5)} else {_buildingRadius};
-	// 25% change on AI not going on rooftops
-	if (random 1 < 0.75) then { _putOnRoof = true } else { _putOnRoof = false };
-	// 25% chance on AI trying to fit into a single building instead of spreading out
-	if (random 1 < 0.75) then { _fillEvenly = true } else { _fillEvenly = false };
 };
 
 _setupObjects =
 {
-	// spawn some crates in the middle of town (Town marker position)
-	_box1 = createVehicle ["Box_NATO_Wps_F", _missionPos, [], 5, "None"];
-	_box1 setDir random 360;
-	[_box1, "mission_USSpecial"] call fn_refillbox;
+	_spawnlist = 
+	[
+	"HostileJet_1",
+	"HostileJet_2",
+	"HostileJet_3",
+	"HostileJet_4",
+	"HostileJet_5",
+	"HostileJet_6",
+	"HostileJet_7",
+	"HostileJet_8"
+	];
+	_Heli_spawn_Pos = markerPos (_spawnlist call BIS_fnc_selectRandom);
 
-	_box2 = createVehicle ["Box_East_Wps_F", _missionPos, [], 5, "None"];
-	_box2 setDir random 360;
-	[_box2, "mission_USLaunchers"] call fn_refillbox;
+	_heliChoices =
+	[
+		["B_Heli_Transport_03_unarmed_green_F"],
+		["B_Heli_Transport_03_unarmed_F"]
+	];
 
-	// create some atmosphere around the crates 8)
-	_tent1 = createVehicle ["Land_cargo_addon02_V2_F", _missionPos, [], 3, "None"];
-	_tent1 setDir random 360;
-	_chair1 = createVehicle ["Land_CampingChair_V1_F", _missionPos, [], 2, "None"];
-	_chair1 setDir random 90;
-	_chair2 = createVehicle ["Land_CampingChair_V2_F", _missionPos, [], 2, "None"];
-	_chair2 setDir random 180;
-	_cFire1	= createVehicle ["Campfire_burning_F", _missionPos, [], 2, "None"];
+	_HeliVeh = _heliChoices call BIS_fnc_selectRandom;
+	
+	_veh1 = _HeliVeh select 0;
 
+	_vehicle = createVehicle [_veh1, _Heli_spawn_Pos, [], 90, "FLY"]; // Added to make it fly
+	_vehicle setVariable ["R3F_LOG_disabled", true, true];
+	_vehicle flyInHeight 200;
+	_vehicle setVariable [call vChecksum, true, false];
 
-	{ _x setVariable ["R3F_LOG_disabled", true, true] } forEach [_box1, _box2];
+	// add pilot
+	_GrpPilot = createGroup RESISTANCE;
+	_GrpPilot setBehaviour "COMBAT";
+	_GrpPilot setCombatMode "RED";
+	_Pilot = [_grpPilot, _Heli_spawn_Pos] call createRandomPilot; 
+	_Pilot setSkill 1;
+	_Pilot moveInDriver _vehicle;
 
-	// spawn some rebels/enemies :)
+	
+	_grpCount = 5;							//default: 5 - this is our minimum number of paratroopers
+	_grpReinforce = floor(random 3)+1;		//number of additional paratroopers 1-3
+	_total_grpCount = _grpCount + _grpReinforce;
+	
 	_aiGroup = createGroup CIVILIAN;
-	[_aiGroup, _missionPos, _nbUnits] call createCustomGroup2;
+	_aiGroup setBehaviour "COMBAT";
+	_aiGroup setCombatMode "RED";
 
-	// move them into buildings
-	[_aiGroup, _missionPos, _buildingRadius, _fillEvenly, _putOnRoof] call moveIntoBuildings;
+	_towninvision_pos = _aiGroup addWaypoint [_missionPos, 0];
 
-	_missionHintText = format ["Hostiles have taken over <br/><t size='1.25' color='%1'>%2</t><br/><br/>There seem to be <t color='%1'>%3 enemies</t> hiding inside or on top of buildings. Get rid of them all, and take their supplies!<br/>Watch out for those windows!", sideMissionColor, _townName, _nbUnits];
+	
+	for "_i" from 1 to (_total_grpCount) do
+		{
+			// Create Unit(s)
+			_unit = [_aiGroup, _Heli_spawn_Pos] call createRandomSoldier;
+			_unit addBackpackGlobal "B_Parachute";
+
+			_unit assignAsCargoIndex [_vehicle, 1];
+			_unit moveInCargo _vehicle;
+
+
+			_unit setRank "Private";
+		};
+	
+	[_vehicle, _aiGroup] spawn checkMissionVehicleLock;
+	
+	//set waypoint for helicopter
+	_wpPosition =_grpPilot addWaypoint [_missionPos, 0];
+	_wpPosition setWaypointType "MOVE";
+	_wpPosition setWaypointSpeed "FULL";
+	_wpPosition setWaypointBehaviour "COMBAT";
+	//waitUntil {currentWaypoint _aiGroup >= 1};
+	
+	_missionPicture = getText (configFile >> "CfgVehicles" >> _veh1 >> "picture");
+	_vehicleName = getText (configFile >> "CfgVehicles" >> _veh1 >> "displayName");
+	_missionHintText = format ["An armed <t color='%2'>%1</t> is patrolling the island. Shoot it down and kill the pilot to recover the money and weapons!", _vehicleName, sideMissionColor];
+		
+	waitUntil {(_vehicle distance2D _missionPos) < 75};
+	
+	{
+        doGetOut  _x;
+        unassignVehicle _x
+    } foreach units _aigroup;
+	
+	_backhome_heli = _GrpPilot addWaypoint [_Heli_spawn_Pos, 0];
+	
+	waitUntil {(_vehicle distance2D _Heli_spawn_Pos) < 75};
+	
+	deletevehicle _vehicle;
+
+
 };
 
 _waitUntilMarkerPos = nil;
@@ -71,17 +122,12 @@ _waitUntilCondition = nil;
 
 _failedExec =
 {
-	// Mission failed
-	{ deleteVehicle _x } forEach [_box1, _box2, _tent1, _chair1, _chair2, _cFire1];
+
 };
 
 _successExec =
 {
-	// Mission completed
-	{ _x setVariable ["R3F_LOG_disabled", false, true] } forEach [_box1, _box2];
-
 	_successHintMessage = format ["Nice work!<br/><br/><t color='%1'>%2</t><br/>is a safe place again!<br/>Their belongings are now yours to take!", sideMissionColor, _townName];
-	{ deleteVehicle _x } forEach [_tent1, _chair1, _chair2, _cFire1];
 };
 
 _this call sideMissionProcessor;
