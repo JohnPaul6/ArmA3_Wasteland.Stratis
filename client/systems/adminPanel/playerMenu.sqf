@@ -11,6 +11,7 @@
 #define playerMenuPlayerList 55505
 #define TPPtoM_Button 55611
 #define TPMtoP_Button 55612
+#define Server_event_1 55613
 
 disableSerialization;
 
@@ -24,6 +25,7 @@ if (_uid call isAdmin) then
 	
 	_TPPtoM_Button = _dialog displayCtrl TPPtoM_Button;
 	_TPMtoP_Button = _dialog displayCtrl TPMtoP_Button;
+	_Server_event_1 = _dialog displayCtrl Server_event_1;
 	
 	if !([_uid, highAdmins] call isAdmin || [_uid, serverOwners] call isAdmin) then
 	{
@@ -31,6 +33,8 @@ if (_uid call isAdmin) then
 		_TPPtoM_Button ctrlSetTooltip "Admin & Above only";
 		_TPMtoP_Button ctrlEnable false;
 		_TPMtoP_Button ctrlSetTooltip "Admin & Above only";
+		_Server_event_1 ctrlEnable false;
+		_Server_event_1 ctrlSetTooltip "Admin & Above only";
 	};
 
 	{

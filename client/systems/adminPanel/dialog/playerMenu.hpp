@@ -15,6 +15,7 @@
 #define playerMenuPlayerSteam 55511
 #define TPPtoM_Button 55611
 #define TPMtoP_Button 55612
+#define Server_event_1 55613
 
 
 class PlayersMenu
@@ -312,7 +313,7 @@ class PlayersMenu
 		
 		class Event1: w_RscButton
 		{
-			idc = -1;
+			idc = Server_event_1;
 			text = "Event #1";
 			onButtonClick = "[11] execVM 'client\systems\adminPanel\playerSelect.sqf'";
 			x = 0.3705 * safezoneW + safezoneX;
