@@ -6,13 +6,17 @@
 
 if (!isServer) exitWith {};
 
-private ["_UID", "_bank", "_moneySaving", "_result", "_data", "_dataTemp", "_ghostingTimer", "_secs"];
+
+private ["_UID", "_bank", "_moneySaving", "_crossMap", "_environment", "_result", "_data", "_location", "_dataTemp", "_ghostingTimer", "_secs", "_columns", "_pvar", "_pvarG"];
+
 _UID = _this;
 
 _bank = 0;
 _supporters = 0;
 _moneySaving = ["A3W_moneySaving"] call isConfigOn;
 _supportersEnabled = ["A3W_supportersEnabled"] call isConfigOn;
+_crossMap = ["A3W_extDB_playerSaveCrossMap"] call isConfigOn;
+_environment = ["A3W_extDB_Environment", "normal"] call getPublicVar;
 
 //Supporter Database Query
 if (_supportersEnabled) then
@@ -25,6 +29,7 @@ if (_supportersEnabled) then
 	};
 };
 
+
 if (_moneySaving) then
 {
 	_result = ["getPlayerBankMoney:" + _UID, 2] call extDB_Database_async;
@@ -35,7 +40,14 @@ if (_moneySaving) then
 	};
 };
 
-_result = ([format ["checkPlayerSave:%1:%2", _UID, call A3W_extDB_MapID], 2] call extDB_Database_async) select 0;
+_result = if (_crossMap) then
+{
+	([format ["checkPlayerSaveXMap:%1:%2", _UID, _environment], 2] call extDB_Database_async) select 0
+}
+else
+{
+	([format ["checkPlayerSave:%1:%2", _UID, call A3W_extDB_MapID], 2] call extDB_Database_async) select 0
+};
 
 if (!_result) then
 {
@@ -67,7 +79,6 @@ else
 		"AssignedItems",
 
 		"CurrentWeapon",
-		"Stance",
 
 		"Uniform",
 		"Vest",
@@ -90,22 +101,47 @@ else
 		"WastelandItems",
 
 		"Hunger",
-		"Thirst",
-
-		"Position",
-		"Direction"
+		"Thirst"
 	];
+
+	_location = ["Stance", "Position", "Direction"];
+
+	if (!_crossMap) then
+	{
+		_data append _location;
+	};
 
 	if (_moneySaving) then
 	{
 		_data pushBack "Money";
 	};
 
-	_result = [format ["getPlayerSave:%1:%2:%3", _UID, call A3W_extDB_MapID, _data joinString ","], 2] call extDB_Database_async;
+	_result = if (_crossMap) then
+	{
+		[format ["getPlayerSaveXMap:%1:%2:%3", _UID, _environment, _data joinString ","], 2] call extDB_Database_async;
+	}
+	else
+	{
+		[format ["getPlayerSave:%1:%2:%3", _UID, call A3W_extDB_MapID, _data joinString ","], 2] call extDB_Database_async;
+	};
 
 	{
 		_data set [_forEachIndex, [_data select _forEachIndex, _x]];
 	} forEach _result;
+
+	if (_crossMap) then
+	{
+		_result = [format ["getPlayerSave:%1:%2:%3", _UID, call A3W_extDB_MapID, _location joinString ","], 2] call extDB_Database_async;
+
+		if (count _result == count _location) then
+		{
+			{
+				_location set [_forEachIndex, [_location select _forEachIndex, _x]];
+			} forEach _result;
+
+			_data append _location;
+		};
+	};
 
 	_dataTemp = _data;
 	_data = [["PlayerSaveValid", true]];
@@ -114,11 +150,18 @@ else
 
 	if (_ghostingTimer > 0) then
 	{
-		_result = [format ["getTimeSinceServerSwitch:%1:%2:%3", _UID, call A3W_extDB_MapID, call A3W_extDB_ServerID], 2] call extDB_Database_async;
+		_result = if (_crossMap) then
+		{
+			[format ["getTimeSinceServerSwitchXMap:%1:%2:%3", _UID, _environment, call A3W_extDB_ServerID], 2] call extDB_Database_async
+		}
+		else
+		{
+			[format ["getTimeSinceServerSwitch:%1:%2:%3", _UID, call A3W_extDB_MapID, call A3W_extDB_ServerID], 2] call extDB_Database_async
+		};
 
 		if (count _result > 0) then
 		{
-			_secs = _result select 0;
+			_secs = _result select 0; // [_result select 1] = LastServerID, if _crossMap then [_result select 2] = WorldName
 
 			if (_secs < _ghostingTimer) then
 			{
